@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Board class to handle the grid, update it and to display it.
 class Board
   attr_accessor :grid
   # initialize a board of 3x3
