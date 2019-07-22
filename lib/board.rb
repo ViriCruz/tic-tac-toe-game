@@ -2,7 +2,7 @@
 
 # Board class to handle the grid, update it and to display it.
 class Board
-  attr_accessor :grid
+  attr_reader :grid
   # initialize a board of 3x3
   def initialize
     @grid = [
