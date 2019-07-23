@@ -63,6 +63,3 @@ class Board
     col
   end
 end
-
-b = Board.new
-b.update_board("X", 9)
