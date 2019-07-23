@@ -35,6 +35,17 @@ class Game
     won
   end
 
+  def draw?
+    arr_2 = []
+    @board.grid.each do |row|
+      row.each do |state|
+        arr_2 << state if (state != 'X' && state != 'O')
+      end
+    end
+
+    (arr_2.empty?) ? true : false
+  end
+
   def check_availability?(position)
     grid = @board.grid
     available = false
