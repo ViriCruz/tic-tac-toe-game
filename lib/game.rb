@@ -6,29 +6,33 @@ require_relative 'player'
 # game class that will handle who is the winner or if it's a draw
 class Game
   attr_reader :board, :player_one, :player_two
+  attr_writer :moves
   def initialize
     @board = Board.new
     @player_one = Player.new('Player X', 'X')
     @player_two = Player.new('Player O', 'O')
   end
 
-
-  def winner
+  def won?(player_option)
     grid = @board.grid
+    player_option.upcase!
+    won = false
+    
+    # horizontal victory
+    won = true if grid[0][0] == player_option && grid[0][1] == player_option && grid[0][2] == player_option
+    won = true if grid[1][0] == player_option && grid[1][1] == player_option && grid[1][2] == player_option
+    won = true if grid[2][0] == player_option && grid[2][1] == player_option && grid[2][2] == player_option
 
-    grid.each_with_index do |row, r_idx|
+    # vertical victory
+    won = true if grid[0][0] == player_option && grid[1][0] == player_option && grid[2][0] == player_option
+    won = true if grid[0][1] == player_option && grid[1][1] == player_option && grid[2][1] == player_option
+    won = true if grid[0][2] == player_option && grid[1][2] == player_option && grid[2][2] == player_option
 
-      row.each_with_index do |cell, c_idx|
-        case cell 
-        when 'X'
-          return player_one.name if grid[r_idx][c_idx + 1] == 'X' && grid[r_idx][c_idx + 2] == 'X'
-        when 'O'
-          return player_two.name if grid[r_idx][c_idx + 1] == 'O' && grid[r_idx][c_idx + 2] == 'O'
-        end
-      end 
+    # diagonal victory
+    won = true if grid[0][0] == player_option && grid[1][1] == player_option && grid[2][2] == player_option
+    won = true if grid[0][2] == player_option && grid[1][1] == player_option && grid[2][0] == player_option
 
-    end
-
+    won
   end
 
   def check_availability?(position)
@@ -43,35 +47,3 @@ class Game
   end
 
 end
-
-game = Game.new
-puts "Player X and Player O are ready to play!"
-5.times do 
-  
-  puts "Player X choose a position from 1 to 9"
-  position = gets.chomp.to_i
-  available = game.check_availability?(position)
-  puts available
-
-  while available == false
-    puts "choose another position"
-    position = gets.chomp.to_i
-    available = game.check_availability?(position)
-  end
-  game.board.update_board(game.player_one.option, position) if available
-
-  puts "Player O choose a position from 1 to 9"
-  position = gets.chomp.to_i
-  available = game.check_availability?(position)
-  puts available
-  while available == false
-    puts "choose another position"
-    position = gets.chomp.to_i
-    available = game.check_availability?(position)
-  end
-  game.board.update_board(game.player_two.option, position) if available
-    
- 
-end
-
-print game.winner
