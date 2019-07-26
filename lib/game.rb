@@ -51,7 +51,6 @@ class Game
   def check_availability?(position)
     grid = @board.grid
     available = false
-    
     row = @board.find_row(position.to_i)
     col = @board.find_col(position.to_i)
     available = true if grid[row][col] != 'X' && grid[row][col] != 'O'
@@ -77,6 +76,6 @@ class Game
   end
 
   def convert_to_number(position)
-    position = position.to_i
+    position.to_i
   end
 end

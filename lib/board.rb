@@ -56,7 +56,7 @@ class Board
     when 2, 5, 8
       col = 1
     when 3, 6, 9
-      col = 2    
+      col = 2
     end
     col
   end
