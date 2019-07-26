@@ -5,12 +5,13 @@ require_relative 'player'
 
 # game class that will handle who is the winner or if it's a draw
 class Game
-  attr_reader :board, :player_one, :player_two
-  attr_writer :moves
+  attr_reader :board, :player_one, :player_two, :turn
   def initialize
     @board = Board.new
     @player_one = Player.new('Player X', 'X')
     @player_two = Player.new('Player O', 'O')
+    @moves = 0
+    @turn = @moves
   end
 
   def won?(player_option)
@@ -50,11 +51,34 @@ class Game
     grid = @board.grid
     available = false
     
-    row = @board.find_row(position)
-    col = @board.find_col(position)
-    puts "player move #{grid[row][col]}"
+    row = @board.find_row(position.to_i)
+    col = @board.find_col(position.to_i)
     available = true if (grid[row][col] != 'X' && grid[row][col] != 'O')
     available
+  end
+
+  def moves
+    @moves += 1
+    @turn = @moves
+    return @moves 
+  end
+
+  def valid_number(position)
+    # position = convert_to_number(position)
+
+    status = 0
+    valid = position =~ /[1-9]/
+    if valid == 0
+      position = convert_to_number(position)
+      (position > 0 && position < 10) ? status = 1 : status = -1
+    else
+      status = -2
+    end
+    status
+  end
+
+  def convert_to_number(position)
+      position = position.to_i
   end
 
 end
