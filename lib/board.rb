@@ -29,7 +29,6 @@ class Board
   def update_board(player_option, position)
     row = find_row(position)
     col = find_col(position)
-    
     grid[row][col] = player_option
     puts 'Game updated!'
     display_board
@@ -59,7 +58,6 @@ class Board
     when 3, 6, 9
       col = 2    
     end
-
     col
   end
 end
