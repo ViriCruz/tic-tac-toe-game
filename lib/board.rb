@@ -27,6 +27,14 @@ class Board
 
   # update the board when players moves and display the new board
   def update_board(player_option, position)
+    row = find_row(position)
+    col = find_col(position)
+    grid[row][col] = player_option
+    puts 'Game updated!'
+    display_board
+  end
+
+  def find_row(position)
     row = nil
     case position
     when 1..3
@@ -34,15 +42,22 @@ class Board
     when 4..6
       row = 1
     when 7..9
-      row = 3
+      row = 2
     end
-    @grid[row][position - 1] = player_option
-    puts 'Game updated!'
-    display_board
+
+    row
+  end
+
+  def find_col(position)
+    col = nil
+    case position
+    when 1, 4, 7
+      col = 0
+    when 2, 5, 8
+      col = 1
+    when 3, 6, 9
+      col = 2
+    end
+    col
   end
 end
-
-board = Board.new
-board.display_board
-board.update_board('X', 3)
-print board.grid
