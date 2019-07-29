@@ -6,7 +6,6 @@ require_relative 'player'
 # game class that will handle who is the winner or if it's a draw
 class Game
   attr_reader :board, :player_one, :player_two, :turn
-
   def initialize
     @board = Board.new
     @player_one = Player.new('Player X', 'X')
@@ -51,9 +50,10 @@ class Game
   def check_availability?(position)
     grid = @board.grid
     available = false
+    
     row = @board.find_row(position.to_i)
     col = @board.find_col(position.to_i)
-    available = true if grid[row][col] != 'X' && grid[row][col] != 'O'
+    available = true if (grid[row][col] != 'X' && grid[row][col] != 'O')
     available
   end
 

@@ -30,7 +30,6 @@ class Board
     row = find_row(position)
     col = find_col(position)
     grid[row][col] = player_option
-    puts 'Game updated!'
     display_board
   end
 
@@ -60,4 +59,6 @@ class Board
     end
     col
   end
+
+
 end
