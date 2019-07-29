@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 require_relative 'board'
 require_relative 'player'
-
-# frozen_string_literal: true
 
 # game class that will handle who is the winner or if it's a draw
 class Game
@@ -37,14 +37,14 @@ class Game
   end
 
   def draw?
-    arr_2 = []
+    arr = []
     @board.grid.each do |row|
       row.each do |state|
-        arr_2 << state if (state != 'X' && state != 'O')
+        arr << state if state != 'X' && state != 'O'
       end
     end
 
-    (arr_2.empty?) ? true : false
+    (arr.empty?) ? true : false
   end
 
   def check_availability?(position)
@@ -60,15 +60,13 @@ class Game
   def moves
     @moves += 1
     @turn = @moves
-    return @moves 
+    @moves 
   end
 
   def valid_number(position)
-    # position = convert_to_number(position)
-
     status = 0
     valid = position =~ /[1-9]/
-    if valid == 0
+    if valid.zero?
       position = convert_to_number(position)
       (position > 0 && position < 10) ? status = 1 : status = -1
     else
@@ -78,7 +76,6 @@ class Game
   end
 
   def convert_to_number(position)
-      position = position.to_i
+    position.to_i
   end
-
 end
