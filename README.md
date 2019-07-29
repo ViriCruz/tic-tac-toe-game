@@ -25,6 +25,9 @@ Once you are in bin folder <b>run:</b>
 <pre>
 ruby main.rb
 </pre>
+[Live Version](https://repl.it/@ViriCruz/tic-tac-toe)
+
+
 
 #### Author
 [@ViriCruz](https://github.com/ViriCruz)
