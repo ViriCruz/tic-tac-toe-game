@@ -16,7 +16,7 @@ class Game
 
   def won?(player_option)
     grid = @board.grid
-    player_option.upcase!
+    player_option = player_option.upcase
     won = false
     
     # horizontal victory
@@ -66,7 +66,7 @@ class Game
   def valid_number(position)
     status = 0
     valid = position =~ /[1-9]/
-    if valid.zero?
+    if valid == 0
       position = convert_to_number(position)
       (position > 0 && position < 10) ? status = 1 : status = -1
     else
