@@ -58,9 +58,6 @@ class Main
         attempt += 1 unless available
         if available
           attempt = 0
-          puts "position is available"
-          puts "updating game"
-          puts "displaying board updated"
           @game.board.update_board(player.option, position)
         end
       
