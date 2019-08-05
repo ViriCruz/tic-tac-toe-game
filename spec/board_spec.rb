@@ -8,7 +8,7 @@ describe Board do
 # -----------
 # |7| |8| |9| 
 # -----------
-  let!(:grid) { [[1, 2, 3], [4, 5, 6], [7, 8, 9]] }
+  
   let!(:board) { Board.new }
   # testing update_board, trigger won? if someone won the match
   describe "#update_board" do
@@ -27,6 +27,6 @@ describe Board do
         expect { board.update_board(12, 12) }.to raise_error(TypeError)
       end
     end
-
   end
+  
 end
