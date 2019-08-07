@@ -43,5 +43,37 @@ describe Game do
     end
   end
 
-  
+  # testing draw
+  describe "#draw?" do
+    context 'when no more cells available and no winner' do
+      it 'returns true' do
+        game.board.update_board('X',1)
+        game.board.update_board('O',3)
+        game.board.update_board('X',2)
+        game.board.update_board('O',4)
+        game.board.update_board('X',7)
+        game.board.update_board('O',5)
+        game.board.update_board('X',6)
+        game.board.update_board('O',8)
+        game.board.update_board('X',9)
+        expect( game.draw? ).to eql(true)
+      end
+    end
+  end
+
+  describe "#check_availability?" do
+    context 'when passing a position that is not available' do
+      it 'returns false' do
+        game.board.update_board('X',1)
+        expect( game.check_availability?(1) ).to eql(false)
+      end
+    end
+
+    context 'when passing a position that is available' do
+      it 'returns true' do
+        expect( game.check_availability?(2) ).to eql(true)
+      end
+    end
+  end
+
 end
