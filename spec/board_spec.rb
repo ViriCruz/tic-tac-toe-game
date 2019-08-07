@@ -94,4 +94,29 @@ describe Board do
     end
   end
   
+  describe "#find_col" do
+    context 'when passing a number 1, 4 or 7' do
+      it 'returns the column index 0' do
+        expect( board.find_col(1) ).to eql(0)
+        expect( board.find_col(4) ).to eql(0)
+        expect( board.find_col(7) ).to eql(0)
+      end
+    end
+
+    context 'when passing a number 2, 5 or 8' do
+      it 'returns the column index 1' do
+        expect( board.find_col(2) ).to eql(1)
+        expect( board.find_col(5) ).to eql(1)
+        expect( board.find_col(8) ).to eql(1)
+      end
+    end
+
+    context 'when passing a number 3, 6 or 9' do
+      it 'returns the column index 2' do
+        expect( board.find_col(3) ).to eql(2)
+        expect( board.find_col(6) ).to eql(2)
+        expect( board.find_col(9) ).to eql(2)
+      end
+    end
+  end
 end
