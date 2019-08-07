@@ -33,14 +33,10 @@ describe Board do
     context 'when passing a number from 1 to 3 inclusive' do
       it 'returns the row index 0' do
         expect( board.find_row(1) ).to eql(0)
-      end
-      it 'returns the row index 0' do
         expect( board.find_row(2) ).to eql(0)
-      end
-      it 'returns the row index 0' do
         expect( board.find_row(3) ).to eql(0)
       end
-      
+     
       it 'must not return 1 or any other number higher than 2' do
         expect( board.find_row(1) ).not_to eql(1)
         expect( board.find_row(1) ).not_to eql(5)
@@ -50,14 +46,9 @@ describe Board do
     context 'when passing a number from 4 to 6 inclusive' do
       it 'returns the row index 1' do
         expect( board.find_row(4) ).to eql(1)
-      end
-      it 'returns the row index 1' do
         expect( board.find_row(5) ).to eql(1)
-      end
-      it 'returns the row index 1' do
         expect( board.find_row(6) ).to eql(1)
       end
-
       it 'must not return 0, 2 or any other number higher than 2' do
         expect( board.find_row(4) ).not_to eql(0)
         expect( board.find_row(4) ).not_to eql(2)
@@ -68,14 +59,10 @@ describe Board do
     context 'when passing a number from 7 to 9 inclusive' do
       it 'returns the row index 2' do
         expect( board.find_row(7) ).to eql(2)
-      end
-      it 'returns the row index 2' do
         expect( board.find_row(8) ).to eql(2)
-      end
-      it 'returns the row index 2' do
         expect( board.find_row(9) ).to eql(2)
       end
-
+      
       it 'must not return 0, 1 or any other number higher than 2' do
         expect( board.find_row(7) ).not_to eql(0)
         expect( board.find_row(7) ).not_to eql(1)
