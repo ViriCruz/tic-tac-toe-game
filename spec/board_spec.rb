@@ -10,7 +10,7 @@ describe Board do
 # -----------
   
   let!(:board) { Board.new }
-  # testing update_board, trigger won? if someone won the match
+
   describe "#update_board" do
     context 'when update value in grid' do
       it do
