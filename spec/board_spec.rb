@@ -88,6 +88,11 @@ describe Board do
         expect( board.find_col(4) ).to eql(0)
         expect( board.find_col(7) ).to eql(0)
       end
+
+      it 'must not return 1 or any other number higher than 2' do
+        expect( board.find_col(1) ).not_to eql(1)
+        expect( board.find_col(1) ).not_to eql(5)
+      end
     end
 
     context 'when passing a number 2, 5 or 8' do
@@ -96,6 +101,12 @@ describe Board do
         expect( board.find_col(5) ).to eql(1)
         expect( board.find_col(8) ).to eql(1)
       end
+
+      it 'must not return 0, 2 or any other number higher than 2' do
+        expect( board.find_col(5) ).not_to eql(0)
+        expect( board.find_col(5) ).not_to eql(2)
+        expect( board.find_col(5) ).not_to eql(7)
+      end
     end
 
     context 'when passing a number 3, 6 or 9' do
@@ -103,6 +114,12 @@ describe Board do
         expect( board.find_col(3) ).to eql(2)
         expect( board.find_col(6) ).to eql(2)
         expect( board.find_col(9) ).to eql(2)
+      end
+
+      it 'must not return 0, 1 or any other number higher than 2' do
+        expect( board.find_col(3) ).not_to eql(0)
+        expect( board.find_col(3) ).not_to eql(1)
+        expect( board.find_col(3) ).not_to eql(10)
       end
     end
   end
