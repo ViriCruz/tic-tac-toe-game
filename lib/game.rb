@@ -5,13 +5,14 @@ require_relative 'player'
 
 # game class that will handle who is the winner or if it's a draw
 class Game
-  attr_reader :board, :player_one, :player_two, :turn
+  attr_reader :board, :player_one, :player_two, :turn, :won
   def initialize
     @board = Board.new
     @player_one = Player.new('Player X', 'X')
     @player_two = Player.new('Player O', 'O')
     @moves = 0
     @turn = @moves
+    @won = false
   end
 
   def won?(player_option)
@@ -33,6 +34,7 @@ class Game
     won = true if grid[0][0] == player_option && grid[1][1] == player_option && grid[2][2] == player_option
     won = true if grid[0][2] == player_option && grid[1][1] == player_option && grid[2][0] == player_option
 
+    @won = won
     won
   end
 
@@ -44,7 +46,7 @@ class Game
       end
     end
 
-    (arr.empty?) ? true : false
+    arr.empty? && won == false ? true : false
   end
 
   def check_availability?(position)
