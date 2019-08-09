@@ -66,11 +66,11 @@ describe Board do
 
     context 'when passing a string' do
       it 'returns nil' do
-        expect(board.find_row("a")).to eql(nil)
+        expect(board.find_row('a')).to eql(nil)
       end
 
       it 'must not return 2' do
-        expect(board.find_row("9")).not_to eql(2)
+        expect(board.find_row('9')).not_to eql(2)
       end
     end
   end

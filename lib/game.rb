@@ -65,15 +65,13 @@ class Game
   end
 
   def valid_number(position)
-    status = 0
     valid = position =~ /[1-9]/
     if valid == 0
       position = convert_to_number(position)
-      position.positive? && position < 10 ? status = 1 : status = -1
+      position.positive? && position < 10 ? 1 : -1
     else
-      status = -2
+      return -2
     end
-    status
   end
 
   def convert_to_number(position)
