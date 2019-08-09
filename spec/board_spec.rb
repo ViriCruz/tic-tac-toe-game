@@ -4,7 +4,7 @@ require_relative '../lib/board'
 
 describe Board do
   let!(:board) { Board.new }
-  describe "#update_board" do
+  describe '#update_board' do
     context 'when update value in grid' do
       it do
         expect { board.update_board('X', 2) }.to output("-----------\n|1| |X| |3| \n-----------\n|4| |5| |6| \n-----------\n|7| |8| |9| \n-----------\n").to_stdout
@@ -21,7 +21,7 @@ describe Board do
     end
   end
 
-  describe "#find_row" do
+  describe '#find_row' do
     context 'when passing a number from 1 to 3 inclusive' do
       it 'returns the row index 0' do
         expect(board.find_row(1)).to eql(0)
@@ -52,7 +52,7 @@ describe Board do
         expect(board.find_row(7)).to eql(2)
         expect(board.find_row(8)).to eql(2)
         expect(board.find_row(9)).to eql(2)
-      end 
+      end
       it 'must not return 0, 1 or any other number higher than 2' do
         expect(board.find_row(7)).not_to eql(0)
         expect(board.find_row(7)).not_to eql(1)
@@ -69,8 +69,8 @@ describe Board do
       end
     end
   end
-  
-  describe "#find_col" do
+
+  describe '#find_col' do
     context 'when passing a number 1, 4 or 7' do
       it 'returns the column index 0' do
         expect(board.find_col(1)).to eql(0)
