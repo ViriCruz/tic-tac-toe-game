@@ -12,9 +12,11 @@ describe Game do
         game.board.update_board('X', 2)
         game.board.update_board('X', 3)
       end
+
       it 'returns true' do
         expect(game.won?('X')).to eql(true)
       end
+
       it 'returns false for O player' do
         expect(game.won?('O')).to eql(false)
       end
@@ -26,9 +28,11 @@ describe Game do
         game.board.update_board('O', 5)
         game.board.update_board('O', 7)
       end
+
       it 'returns true' do
         expect(game.won?('O')).to eql(true)
       end
+
       it 'returns false for X player' do
         expect(game.won?('X')).to eql(false)
       end
@@ -40,9 +44,11 @@ describe Game do
         game.board.update_board('X', 4)
         game.board.update_board('X', 7)
       end
+
       it 'returns true' do
         expect(game.won?('X')).to eql(true)
       end
+
       it 'returns false' do
         expect(game.won?('O')).to eql(false)
       end
@@ -87,7 +93,6 @@ describe Game do
   end
 
   describe '#check_availability?' do
-    # trying to isolate method
     context 'when passing a position that is not available' do
       it 'returns false' do
         game.board.update_board('X', 1)

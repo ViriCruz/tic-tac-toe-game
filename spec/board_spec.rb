@@ -9,6 +9,7 @@ describe Board do
       it do
         expect { board.update_board('X', 2) }.to output("-----------\n|1| |X| |3| \n-----------\n|4| |5| |6| \n-----------\n|7| |8| |9| \n-----------\n").to_stdout
       end
+
       it do
         expect { board.update_board(12, 1) }.to output("-----------\n|12| |2| |3| \n-----------\n|4| |5| |6| \n-----------\n|7| |8| |9| \n-----------\n").to_stdout
       end
@@ -28,6 +29,7 @@ describe Board do
         expect(board.find_row(2)).to eql(0)
         expect(board.find_row(3)).to eql(0)
       end
+
       it 'must not return 1 or any other number higher than 2' do
         expect(board.find_row(1)).not_to eql(1)
         expect(board.find_row(1)).not_to eql(5)
@@ -40,6 +42,7 @@ describe Board do
         expect(board.find_row(5)).to eql(1)
         expect(board.find_row(6)).to eql(1)
       end
+
       it 'must not return 0, 2 or any other number higher than 2' do
         expect(board.find_row(4)).not_to eql(0)
         expect(board.find_row(4)).not_to eql(2)
@@ -53,6 +56,7 @@ describe Board do
         expect(board.find_row(8)).to eql(2)
         expect(board.find_row(9)).to eql(2)
       end
+
       it 'must not return 0, 1 or any other number higher than 2' do
         expect(board.find_row(7)).not_to eql(0)
         expect(board.find_row(7)).not_to eql(1)
@@ -64,6 +68,7 @@ describe Board do
       it 'returns nil' do
         expect(board.find_row("a")).to eql(nil)
       end
+
       it 'must not return 2' do
         expect(board.find_row("9")).not_to eql(2)
       end
@@ -77,6 +82,7 @@ describe Board do
         expect(board.find_col(4)).to eql(0)
         expect(board.find_col(7)).to eql(0)
       end
+
       it 'must not return 1 or any other number higher than 2' do
         expect(board.find_col(1)).not_to eql(1)
         expect(board.find_col(1)).not_to eql(5)
@@ -89,6 +95,7 @@ describe Board do
         expect(board.find_col(5)).to eql(1)
         expect(board.find_col(8)).to eql(1)
       end
+
       it 'must not return 0, 2 or any other number higher than 2' do
         expect(board.find_col(5)).not_to eql(0)
         expect(board.find_col(5)).not_to eql(2)
@@ -102,6 +109,7 @@ describe Board do
         expect(board.find_col(6)).to eql(2)
         expect(board.find_col(9)).to eql(2)
       end
+
       it 'must not return 0, 1 or any other number higher than 2' do
         expect(board.find_col(3)).not_to eql(0)
         expect(board.find_col(3)).not_to eql(1)
