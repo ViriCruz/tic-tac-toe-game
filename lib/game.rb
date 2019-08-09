@@ -19,7 +19,7 @@ class Game
     grid = @board.grid
     player_option = player_option.upcase
     won = false
-    
+
     # horizontal victory
     won = true if grid[0][0] == player_option && grid[0][1] == player_option && grid[0][2] == player_option
     won = true if grid[1][0] == player_option && grid[1][1] == player_option && grid[1][2] == player_option
@@ -52,17 +52,16 @@ class Game
   def check_availability?(position)
     grid = @board.grid
     available = false
-    
     row = @board.find_row(position.to_i)
     col = @board.find_col(position.to_i)
-    available = true if (grid[row][col] != 'X' && grid[row][col] != 'O')
+    available = true if grid[row][col] != 'X' && grid[row][col] != 'O'
     available
   end
 
   def moves
     @moves += 1
     @turn = @moves
-    @moves 
+    @moves
   end
 
   def valid_number(position)
@@ -70,7 +69,7 @@ class Game
     valid = position =~ /[1-9]/
     if valid == 0
       position = convert_to_number(position)
-      (position > 0 && position < 10) ? status = 1 : status = -1
+      position.positive? && position < 10 ? status = 1 : status = -1
     else
       status = -2
     end
