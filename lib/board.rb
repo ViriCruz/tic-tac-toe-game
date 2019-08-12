@@ -59,6 +59,4 @@ class Board
     end
     col
   end
-
-
 end
