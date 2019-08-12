@@ -14,7 +14,7 @@ Ruby 2.6.3
 RSpec 3.8
 ```
 #### Installation
-Download repository to your local machine, then navigate to the bin folder on the **_terminal_**
+Download repository to your local machine, then navigate to the bin folder on the **_terminal_**, don't forget to have installed on your machine the ruby version listed above and also the RSpec version.
 <pre>
 ├── bin
 │   └── main.rb
