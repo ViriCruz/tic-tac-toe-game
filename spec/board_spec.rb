@@ -11,7 +11,7 @@ describe Board do
         s_row = "\n-----------\n|4| |5| |6| "
         t_row = "\n-----------\n|7| |8| |9| "
         d_row = "\n-----------\n"
-        
+
         expect { board.update_board('X', 2) }.to output(f_row + s_row + t_row + d_row).to_stdout
       end
 
