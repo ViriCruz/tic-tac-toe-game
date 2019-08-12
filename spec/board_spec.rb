@@ -7,11 +7,20 @@ describe Board do
   describe '#update_board' do
     context 'when update value in grid' do
       it do
-        expect { board.update_board('X', 2) }.to output("-----------\n|1| |X| |3| \n-----------\n|4| |5| |6| \n-----------\n|7| |8| |9| \n-----------\n").to_stdout
+        f_row = "-----------\n|1| |X| |3| "
+        s_row = "\n-----------\n|4| |5| |6| "
+        t_row = "\n-----------\n|7| |8| |9| "
+        d_row = "\n-----------\n"
+        
+        expect { board.update_board('X', 2) }.to output(f_row + s_row + t_row + d_row).to_stdout
       end
 
       it do
-        expect { board.update_board(12, 1) }.to output("-----------\n|12| |2| |3| \n-----------\n|4| |5| |6| \n-----------\n|7| |8| |9| \n-----------\n").to_stdout
+        f_row = "-----------\n|12| |2| |3| "
+        s_row = "\n-----------\n|4| |5| |6| "
+        t_row = "\n-----------\n|7| |8| |9| "
+        d_row = "\n-----------\n"
+        expect { board.update_board(12, 1) }.to output(f_row + s_row + t_row + d_row).to_stdout
       end
     end
     # edge case
