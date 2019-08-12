@@ -7,3 +7,9 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Include: ["app/controllers/*"]
   Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'  
