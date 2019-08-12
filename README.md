@@ -38,5 +38,7 @@ Once you are in the root folder <b>run:</b>
 <pre>
 rspec
 </pre>
+### Live version of the game
+[Live Version](https://repl.it/@ViriCruz/tic-tac-toe)
 #### Author
 [@ViriCruz](https://github.com/ViriCruz)
